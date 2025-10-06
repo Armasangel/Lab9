@@ -1,7 +1,5 @@
 package com.uvg.lab9
 
-
-
 import androidx.compose.runtime.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*

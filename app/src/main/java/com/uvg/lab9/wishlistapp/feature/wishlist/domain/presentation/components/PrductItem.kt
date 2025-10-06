@@ -1,7 +1,5 @@
 package com.uvg.lab9.wishlistapp.feature.wishlist.domain.presentation.components
 
-
-
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -11,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.uvg.wishlistapp.feature.wishlist.domain.model.Product
+import com.uvg.lab9.wishlistapp.feature.wishlist.domain.model.Product
 
 @Composable
 fun ProductItem(
