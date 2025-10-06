@@ -6,6 +6,7 @@ Angel Armas - 241071
 
 
 1. Reflexión
+
    El ViewModel da una solución al problema planteado en la Parte 1, gracias
    a que su ciclo de vida es distinto y, sobre todo, más largo que el de una
    Activity. A diferencia de una Activity, que se reinicia por completo cuando
