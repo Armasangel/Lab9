@@ -1,5 +1,4 @@
-package com.uvg.lab9.Navigation
-
+package com.uvg.lab9.navigation
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -19,15 +18,14 @@ fun AppNavGraph(
         navController = navController,
         startDestination = "root"
     ) {
-        // TODO 1: Crear un grafo de navegación anidado con route "root"
-        // Esto es CRÍTICO para compartir el ViewModel
+        // Grafo de navegación anidado con route "root"
+        // Esto permite compartir el ViewModel entre pantallas
         navigation(
             startDestination = Screen.Wishlist.route,
             route = "root"
         ) {
-            composable(Screen.Wishlist.route) { backStackEntry ->
-                // TODO 2: Obtener el ViewModel con alcance del grafo "root"
-                // Pista: viewModel(backStackEntry.rememberParent("root"))
+            composable(Screen.Wishlist.route) {
+                // Obtener ViewModel con alcance del grafo "root"
                 val viewModel: WishlistViewModel = viewModel(
                     viewModelStoreOwner = navController.getBackStackEntry("root")
                 )
@@ -40,16 +38,18 @@ fun AppNavGraph(
                 )
             }
 
-            composable(Screen.Profile.route) { backStackEntry ->
-                // TODO 3: Obtener el MISMO ViewModel usando el grafo "root"
-                val viewModel: WishlistViewModel = /* TU CÓDIGO AQUÍ */
+            composable(Screen.Profile.route) {
+                // Obtener el MISMO ViewModel usando el grafo "root"
+                val viewModel: WishlistViewModel = viewModel(
+                    viewModelStoreOwner = navController.getBackStackEntry("root")
+                )
 
-                    ProfileScreen(
-                        viewModel = viewModel,
-                        onNavigateBack = {
-                            navController.popBackStack()
-                        }
-                    )
+                ProfileScreen(
+                    viewModel = viewModel,
+                    onNavigateBack = {
+                        navController.popBackStack()
+                    }
+                )
             }
         }
     }
